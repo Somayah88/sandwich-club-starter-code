@@ -11,27 +11,25 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
-    private TextView mOriginTv;
-    private TextView mDescriptionTv;
-    private TextView mIngredientsTv;
-    private TextView mAlsoKnownAsTv;
-    private ImageView mIngredientsIv;
+    @BindView(R.id.origin_tv)  TextView mOriginTv;
+    @BindView(R.id.description_tv)  TextView mDescriptionTv;
+    @BindView(R.id.ingredients_tv)  TextView mIngredientsTv;
+    @BindView(R.id.also_known_tv)  TextView mAlsoKnownAsTv;
+    @BindView(R.id.image_iv)  ImageView mIngredientsIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        mIngredientsIv = findViewById(R.id.image_iv);
-        mOriginTv = findViewById(R.id.origin_tv);
-        mDescriptionTv = findViewById(R.id.description_tv);
-        mIngredientsTv = findViewById(R.id.ingredients_tv);
-        mAlsoKnownAsTv = findViewById(R.id.also_known_tv);
-
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
         if (intent == null) {
